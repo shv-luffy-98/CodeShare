@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "1071975019139",
+    "firebase_url": "https://codeshare-mini.firebaseio.com",
+    "project_id": "codeshare-mini",
+    "storage_bucket": "codeshare-mini.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071975019139:android:491b74c0efe140ee",
+        "android_client_info": {
+          "package_name": "com.example.shv.codeshareluffy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071975019139-csufv39hakp2sb8j42ejkrb95a76cm4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1Tox1N-yP11J5V3C3Axzsf6O7WQAd2jA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071975019139:android:05d60467bc4a374e",
+        "android_client_info": {
+          "package_name": "com.example.shv.codesharemini"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071975019139-csufv39hakp2sb8j42ejkrb95a76cm4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1Tox1N-yP11J5V3C3Axzsf6O7WQAd2jA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
