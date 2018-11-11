@@ -57,23 +57,18 @@ public class SignUp extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (task.isSuccessful()) {
                                             Toast.makeText(getApplicationContext(), "Registered", Toast.LENGTH_SHORT);
+                                            mAuth.signInWithEmailAndPassword(email, pass);
                                             FirebaseUser user = mAuth.getCurrentUser();
 
-
                                             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                                    .setDisplayName(name)
-                                                    .build();
+                                                    .setDisplayName(name).build();
 
-                                            user.updateProfile(profileUpdates)
-                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            user.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<Void> task) {
-                                                            if (task.isSuccessful()) {
-                                                                ;
-                                                            }
+                                                            if (task.isSuccessful()) { }
                                                         }
                                                     });
-
 
                                             startActivity(new Intent(getApplicationContext(), Home.class));
                                             finish();

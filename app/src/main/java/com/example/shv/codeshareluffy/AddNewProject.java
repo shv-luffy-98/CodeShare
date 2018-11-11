@@ -58,10 +58,10 @@ public class AddNewProject extends AppCompatActivity {
         password = pass.getText().toString();
         name = Name.getText().toString();
 
-        if (password != null && !password.isEmpty() && !name.isEmpty() && name != null) {
+        if (!password.isEmpty() && !name.isEmpty()) {
             if(a.getText().equals("New Project"))
             {
-                Toast.makeText(getApplicationContext(),"Submitting", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Created", Toast.LENGTH_SHORT).show();
 
                 DatabaseReference pDb = FirebaseDatabase.getInstance().getReference("projects");
                 String key = pDb.push().getKey();
@@ -80,34 +80,33 @@ public class AddNewProject extends AppCompatActivity {
             }
             else
             {
-                DatabaseReference uDb = FirebaseDatabase.getInstance().getReference("UserProjects");
                 DatabaseReference pDb = FirebaseDatabase.getInstance().getReference("projects");
-
-                String key = name;
-                pDb.orderByChild("ProjectID").equalTo(key).addListenerForSingleValueEvent(pwdchecklistener);
-                UserProject u = new UserProject(FirebaseAuth.getInstance().getCurrentUser().getEmail(), key);
-                if(password.equals(pwdcheck.projectPassword))
-                {
+                pDb.child(name).addListenerForSingleValueEvent(pwdchecklistener);
+            }
+        } else
+            Toast.makeText(getApplicationContext(), "Enter all fields", Toast.LENGTH_SHORT).show();
+    }
+    ValueEventListener pwdchecklistener = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            if(dataSnapshot.exists()){
+                String s="la";
+                for(DataSnapshot sn : dataSnapshot.getChildren()){
+                    s = sn.getValue(String.class);
+                }
+                if(password.equals(s)) {
+                    UserProject u = new UserProject(FirebaseAuth.getInstance().getCurrentUser().getEmail(), name);
+                    DatabaseReference uDb = FirebaseDatabase.getInstance().getReference("UserProjects");
                     uDb.child(uDb.push().getKey()).setValue(u);
                     Intent intent = new Intent();
                     setResult(2, intent);
                     finish();
                 }
                 else
-                    Toast.makeText(getApplicationContext(),"Wrong Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(),"Wrong Password", Toast.LENGTH_SHORT).show();
             }
-        } else {
-            Toast.makeText(getApplicationContext(), "Enter all fields", Toast.LENGTH_SHORT).show();
-        }
-    }
-    ValueEventListener pwdchecklistener = new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            if(dataSnapshot.exists()){
-                for(DataSnapshot sn : dataSnapshot.getChildren()){
-                    pwdcheck = sn.getValue(Project.class);
-                }
-            }
+            else
+                Toast.makeText(getBaseContext(),"Project not found", Toast.LENGTH_SHORT).show();
         }
 
         @Override

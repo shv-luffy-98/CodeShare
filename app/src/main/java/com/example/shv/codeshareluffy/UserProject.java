@@ -1,7 +1,7 @@
 package com.example.shv.codeshareluffy;
 
 public class UserProject {
-    String email, projectKey;
+    public String email, projectKey;
     public UserProject(){
 
     }
@@ -9,6 +9,6 @@ public class UserProject {
         this.email = email;
         this.projectKey = projectKey;
     }
-    public String email() {return email;}
-    public String projectKey() {return projectKey;}
+    public String getemail() {return email;}
+    public String getprojectKey() {return projectKey;}
 }

@@ -41,18 +41,18 @@
             android:text="Save"
             android:textColor="#FFFFFF" />
 
-        <!--<Button
-            android:id="@+id/code_editor_cancel"
+        <Button
+            android:id="@+id/code_editor_copy_id"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:layout_weight="1"
             android:background="#6200EE"
-            android:onClick="finish"
+            android:onClick="CopyId"
             android:padding="8dp"
-            android:text="Cancel"
-            android:textColor="#FFFFFF" />-->
+            android:text="Copy ID"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 </LinearLayout>
